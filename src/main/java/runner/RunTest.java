@@ -8,8 +8,8 @@ import io.cucumber.junit.Cucumber;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "stepDef",
-        tags = "@TDD",
-        plugin = {"pretty", "html:target/RegressionReport.html"}
+        tags = "@register",
+        plugin = {"pretty", "html:target/RegressionForm.html"}
 )
 public class RunTest {
 }
