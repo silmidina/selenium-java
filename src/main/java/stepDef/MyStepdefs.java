@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.homePages;
+import pages.registerPages;
 
 import config.env_target;
 import java.time.Duration;
@@ -29,7 +31,9 @@ public class MyStepdefs extends env_target {
 
     @When("^User click register link button$")
     public void userClickRegisterLinkButton() {
-        driver.findElement(By.xpath("//a[contains(@href, 'register')]")).click();
+        homePages homepage = new homePages(driver);
+
+        homepage.clickRegister();
     }
 
     @Then("^User is in register page$")
@@ -43,10 +47,9 @@ public class MyStepdefs extends env_target {
 
     @When("^User input name$")
     public void userInputName() {
-        //User input firstname
-        driver.findElement(By.id("customer.firstName")).sendKeys("Myskill");
-        //User input lastname
-        driver.findElement(By.name("customer.lastName")).sendKeys("Indo");
+        registerPages inputName = new registerPages(driver);
+
+        inputName.inputNameData("Myskill", "Indo");
     }
 
     @And("^User input address detail$")
